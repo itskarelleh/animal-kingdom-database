@@ -1,0 +1,33 @@
+{
+  "name": "animal-kingdom",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.8.4",
+    "@apollo/server": "^4.9.3",
+    "@as-integrations/next": "^2.0.2",
+    "apollo-server-core": "^3.12.1",
+    "graphql": "^16.8.1",
+    "graphql-tag": "^2.12.6",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "autoprefixer": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "postcss": "latest",
+    "tailwindcss": "latest",
+    "typescript": "latest"
+  }
+}
