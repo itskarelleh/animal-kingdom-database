@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Animal {
+  id                 String @id
+  name               String
+  description        String
+  conservationStatus String
+  phylum             String
+  subPhylum          String
+  class              String
+  order              String
+  family             String
+}
+
+// docker run -d --name ak-container -e MYSQL_ROOT_PASSWORD=IlovePostgresql -e MYSQL_DATABASE=animal_kingdom -e MYSQL_USER=akadmin -e MYSQL_PASSWORD=IlovePostgresql -v mysql_data:/var/lib/mysql -p 3306:3306 mysql:latest
