@@ -1,25 +1,40 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
 generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
-}
-
 model Animal {
-  id                 String @id
-  name               String
+  id                 Int @id @default(autoincrement())
+  name               String @unique
   description        String
-  conservationStatus String
+  conservationStatus ConservationStatus?
   phylum             String
   subPhylum          String
   class              String
   order              String
   family             String
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+enum ConservationStatus {
+  EX
+  EW
+  CR
+  EN
+  VU
+  NT
+  LC
+  DD
+  NE
+  NA
 }
 
 // docker run -d --name ak-container -e MYSQL_ROOT_PASSWORD=IlovePostgresql -e MYSQL_DATABASE=animal_kingdom -e MYSQL_USER=akadmin -e MYSQL_PASSWORD=IlovePostgresql -v mysql_data:/var/lib/mysql -p 3306:3306 mysql:latest
