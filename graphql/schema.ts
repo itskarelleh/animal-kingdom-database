@@ -1,19 +1,43 @@
 import {gql} from "graphql-tag";
 
 export const typeDefs = gql`
-    type Animal {
-        id: ID!
-        name: String!
-        phylum: String!
-        subPhylum: String
-        class: String!
-        Order: String!
-        Family: String!
+    type Query {
+        hello: String
+        animal: Animal
+        animals: [Animal]
+        animalByName(name: String) : Animal
+        animalsByNames(names: [String]): [Animal]
+        animalsByFamily(family: String): [Animal]
     }
     
-    type Query {
-        animals: [Animal!]!
-        animalsByFamily(family: String): [Animal!]!
-        animalById(id: ID!): Animal!
+    type Animal {
+      id: Int
+      name: String
+      description: String
+      conservationStatus: ConservationStatus
+      phylum: String
+      subPhylum: String
+      class: String
+      order: String
+      family: String
+      createdAt: DateTime
+      updatedAt: DateTime
     }
+
+# Define the enum type for ConservationStatus
+    enum ConservationStatus {
+      EX
+      EW
+      CR
+      EN
+      VU
+      NT
+      LC
+      DD
+      NE
+      NA
+    }
+    
+    scalar DateTime
+
 `
