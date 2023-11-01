@@ -2,10 +2,8 @@ import {gql} from "graphql-tag";
 
 export const typeDefs = gql`
     type Query {
-        hello: String
-        animal: Animal
+        animal(name: String!): Animal
         animals: [Animal]
-        animalByName(name: String) : Animal
         animalsByNames(names: [String]): [Animal]
         animalsByFamily(family: String): [Animal]
     }

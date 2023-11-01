@@ -23,6 +23,8 @@ export function Landing() {
 
   const animals = data?.animals;
 
+  console.log(animals);
+
 
   if(loading) return <p>Loading...</p>
 

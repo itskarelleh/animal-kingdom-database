@@ -4,31 +4,22 @@ import { PrismaClient } from "@prisma/client";
 import { resolvers } from "@/graphql/resolvers"
 import { typeDefs } from "@/graphql/schema";
 import {NextRequest} from "next/server";
+import { prisma } from "@/prisma/db";
 import {gql} from "graphql-tag";
 
 export type Context = {
     prisma: PrismaClient
 };
 
-// const resolvers = {
-//     Query: {
-//         hello: () => 'world',
-//     },
-// };
-//
-// const typeDefs = gql`
-//   type Query {
-//     hello: String
-//   }
-// `;
 
 const server = new ApolloServer({
     resolvers,
     typeDefs,
+    introspection: process.env.NODE_ENV !== "production",
 });
 
 const handler = startServerAndCreateNextHandler<NextRequest>(server, {
-    context: async req => ({ req }),
+    context: async (req, res) => ({ req, res, prisma }),
 });
 export { handler as GET, handler as POST };
 

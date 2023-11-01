@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "graphql": "next dev -p 4000",
+    "graphql": "next dev -p 3000",
     "prisma:format": "prisma format",
     "prisma:generate": "prismate generate"
   },
