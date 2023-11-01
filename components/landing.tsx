@@ -13,26 +13,21 @@ import {prisma} from "@/prisma/db";
 
 export function Landing() {
 
-  const featuredAnimals = ["dog", "eagle", "gorilla"];
+  const names = ["dog", "eagle", "gorilla"];
 
-  // const { data, loading, error } = useQuery(GET_ANIMALS_BY_NAME, {
-  //   variables: { names: featuredAnimals }
-  // });
+  const { data, loading, error } = useQuery(GET_ANIMALS_BY_NAME, {
+    variables: { names }
+  });
 
-  const { data, loading, error } = useQuery(GET_ANIMALS);
+  const animals : any = data?.animalsByNames;
 
-  const animals = data?.animals;
-
-  console.log(animals);
+  console.log("data= " + animals);
+  console.log(data);
 
 
   if(loading) return <p>Loading...</p>
 
   if(error) return <p>{error.message}</p>
-
-  if(animals.length === 0) {
-    return <p>No animals found.</p>
-  }
 
   return (
     <>

@@ -32,8 +32,12 @@ export const GET_ANIMALS = gql`
 
 export const GET_ANIMALS_BY_NAME = gql`
     query GetAnimalsByNames($names: [String]) {
-        animalsByName(where: { name_contains: $names }) {
+        animalsByNames(names: $names) {
+            id
             name
+            family
+            order
+            conservationStatus
         }    
     }
 `;

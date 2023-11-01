@@ -10,10 +10,6 @@ export default function Home() {
   return (
       <>
         <Landing />
-          {/*<div>*/}
-          {/*    <h1>Animals</h1>*/}
-          {/*    <Animals />*/}
-          {/*</div>*/}
       </>
   );
 }

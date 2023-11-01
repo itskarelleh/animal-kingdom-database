@@ -12,18 +12,14 @@ export const resolvers = {
         animals: (parent: any, args: any, context: Context) => {
             return context.prisma.animal.findMany();
         },
-        animalsByNames: (parent: any, args: any, context: Context) => {
-            const names = args.names;
-            // Get the animals from the database
-
-            // Return the animals
+        animalsByNames:(parent: any, args: any, context: Context) => {
             return context.prisma.animal.findMany({
                 where: {
                     name: {
-                        in: names,
-                    },
+                        in: args.names
+                    }
                 }
-            });
+            })
         },
         animalsByFamily: (parent: any, args: any, context: Context) => {
             return context.prisma.animal.findMany({
