@@ -14,6 +14,8 @@ model Animal {
   id                 Int @id @default(autoincrement())
   name               String @unique
   description        String
+  bio                String @default("")
+  thumbnail          String @default("")
   conservationStatus ConservationStatus?
   phylum             String
   subPhylum          String
@@ -36,5 +38,3 @@ enum ConservationStatus {
   NE
   NA
 }
-
-// docker run -d --name ak-container -e MYSQL_ROOT_PASSWORD=IlovePostgresql -e MYSQL_DATABASE=animal_kingdom -e MYSQL_USER=akadmin -e MYSQL_PASSWORD=IlovePostgresql -v mysql_data:/var/lib/mysql -p 3306:3306 mysql:latest

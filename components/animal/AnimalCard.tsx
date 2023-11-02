@@ -16,7 +16,7 @@ export default function AnimalCard({ animal } : any) {
                 />
                 <div className="px-6 py-4">
                     <div className="">
-                        <h2 className="font-bold text-xl mb-2">{animal.name}</h2>
+                        <h2 className="font-bold text-xl mb-2 capitalize">{animal.name}</h2>
                     </div>
                     <p className="text-gray-700 dark:text-gray-200 text-base">{animal.description}</p>
                     <p className="text-gray-700 dark:text-gray-200 text-base">{animal.description}</p>

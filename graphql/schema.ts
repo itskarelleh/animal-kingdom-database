@@ -12,6 +12,8 @@ export const typeDefs = gql`
       id: Int
       name: String
       description: String
+      bio: String
+      thumbnail: String
       conservationStatus: ConservationStatus
       phylum: String
       subPhylum: String
