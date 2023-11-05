@@ -24,7 +24,6 @@ export const typeDefs = gql`
       updatedAt: DateTime
     }
 
-# Define the enum type for ConservationStatus
     enum ConservationStatus {
       EX
       EW
@@ -38,6 +37,27 @@ export const typeDefs = gql`
       NA
     }
     
+    type Mutation {
+        addAnimal(input: AnimalInput!): Animal
+        updateAnimal(input: AnimalInput!): Animal
+        deleteAnimal(id: String): Animal
+    }
+    
+    input AnimalInput {
+      name: String!
+      description: String!
+      family: String!
+      bio: String!
+      class: String!
+      order: String!
+      phylum: String!
+      subPhylum: String
+      conservationStatus: String
+      thumbnail: Upload
+    }
+    
     scalar DateTime
+    
+    scalar Upload
 
 `

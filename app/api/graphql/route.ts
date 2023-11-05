@@ -11,7 +11,6 @@ export type Context = {
     prisma: PrismaClient
 };
 
-
 const server = new ApolloServer({
     resolvers,
     typeDefs,
