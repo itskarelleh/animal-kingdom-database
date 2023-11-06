@@ -4,7 +4,6 @@ import express, { Request, Response, Router } from 'express';
 import {Database, getModelByName, Resource} from '@adminjs/prisma';
 import { prisma } from "@/prisma/db";
 
-
 AdminJS.registerAdapter({ Database, Resource });
 
 const admin = new AdminJS({
