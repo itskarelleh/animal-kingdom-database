@@ -1,4 +1,9 @@
-import { Context } from '@/app/api/graphql/route';
+import { PrismaClient } from '@prisma/client';
+
+export type Context = {
+    prisma: PrismaClient
+}
+
 export const resolvers = {
     Query: {
         //get animal by name
@@ -30,7 +35,7 @@ export const resolvers = {
         }
     },
     Mutation: {
-        addAnimal: async (parent: any, args: any, context: Context) => {
+        addAnimal: (parent: any, args: any, context: Context) => {
             const { name, description, thumbnail, phylum, subPhylum, order, family } = args.input;
 
             // const formData = new FormData();
@@ -61,7 +66,7 @@ export const resolvers = {
             //     throw new Error('File upload failed');
             // }
 
-            return await context.prisma.animal.create({
+            return context.prisma.animal.create({
                 data : { ...args.input,
                 },
             });
