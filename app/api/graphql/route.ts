@@ -11,7 +11,7 @@ export type Context = {
     prisma: PrismaClient
 };
 
-const server = new ApolloServer<Context>({
+const server = new ApolloServer<Context | object>({
     resolvers,
     typeDefs,
     introspection: process.env.NODE_ENV !== "production",
@@ -21,4 +21,5 @@ const handler = startServerAndCreateNextHandler<NextRequest>(server, {
     context: async (req, res) => ({ req, res, prisma }),
 });
 
-export { handler as GET, handler as POST };
+// export { handler as GET, handler as POST };
+export { handler as POST };

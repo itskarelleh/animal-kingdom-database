@@ -1,4 +1,3 @@
-// api/route.ts
 import { serialize } from "cookie";
 
 export async function POST(request: Request, params: { slug: string }) {
@@ -7,7 +6,7 @@ export async function POST(request: Request, params: { slug: string }) {
     const cookie = serialize(process.env.PASSWORD_COOKIE_NAME!, "true",
     {
         httpOnly: true,
-            path: "/",
+            path: "/api/admin",
     });
 
     if (process.env.PAGE_PASSWORD !== password) {
