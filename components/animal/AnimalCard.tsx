@@ -7,7 +7,7 @@ export default function AnimalCard({ animal } : any) {
                     alt="Animal"
                     className="w-full h-56 object-cover"
                     height="200"
-                    src="/placeholder.svg"
+                    src={animal.thumbnail}
                     style={{
                         aspectRatio: "200/200",
                         objectFit: "cover",

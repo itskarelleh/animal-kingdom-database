@@ -8,8 +8,8 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import AnimalCard from "@/components/animal/AnimalCard";
 import {useQuery} from "@apollo/client";
-import {GET_ANIMALS, GET_ANIMALS_BY_NAME } from "@/graphql/queries";
-import {prisma} from "@/prisma/db";
+import Image from "next/image";
+import { GET_ANIMALS_BY_NAME } from "@/graphql/queries";
 
 export function Landing() {
 
@@ -21,10 +21,6 @@ export function Landing() {
 
   const animals : any = data?.animalsByNames;
 
-  console.log("data= " + animals);
-  console.log(data);
-
-
   if(loading) return <p>Loading...</p>
 
   if(error) return <p>{error.message}</p>
@@ -32,31 +28,36 @@ export function Landing() {
   return (
     <>
       <section
-        className="w-full h-screen bg-cover bg-center"
+        className="w-full h-screen flex flex-row justify-evenly bg-[#f8f7ec]"
         style={{
           backgroundImage: "url('/placeholder.svg?height=1080&width=1920')",
         }}
       >
-        <div className="flex flex-col justify-center items-center h-full bg-black bg-opacity-50">
-          <h1 className="text-5xl text-white font-bold">Welcome to Animal Database</h1>
-          <p className="text-xl text-white">Discover your favorite animals</p>
+        <div className="flex flex-col justify-center items-center h-full">
+          <h1 className="text-5xl font-bold">Welcome to Animal Database</h1>
+          <p className="text-xl">Discover your favorite animals</p>
           <div className="mt-8 flex">
             <Input className="mr-2 flex-grow" placeholder="Search animals..." />
             <Button type="submit">Search</Button>
           </div>
         </div>
+        <div className="flex flex-col justify-center items-center h-full">
+          <Image src={"/hero-img.webp"} alt={"hero image"} width={600} height={600} />
+        </div>
       </section>
-      <section className="w-full py-12 bg-white dark:bg-gray-800">
+      <section className="w-full py-12 bg-white dark:bg-slate-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center">Featured Animals</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-6">
             {animals && animals.map((animal : any) => (
-                <AnimalCard key={animal.key} animal={animal} />
+                <Link key={animal.id} href={`/animal/${animal.name}`}>
+                  <AnimalCard key={animal.id} animal={animal} />
+                </Link>
             ))}
           </div>
         </div>
       </section>
-      <footer className="w-full bg-gray-800 text-white py-8">
+      <footer className="w-full bg-slate-800 text-white py-8">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <div>

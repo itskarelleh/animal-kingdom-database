@@ -6,6 +6,7 @@
 3. Impact
 4. Locations 
 5. Daily Routine and Habits
-6. Pop culture and references(optional)
-7. Conservation Status(if applicable)
-8. Conclusion
+6. Reproduction
+7. Pop culture and references(optional)
+8. Conservation Status(optional and if applicable)
+9. Conclusion

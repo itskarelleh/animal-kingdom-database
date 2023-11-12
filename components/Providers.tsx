@@ -14,7 +14,8 @@ const Providers = ({ children } : { children: ReactNode }) => {
 
     const client = new ApolloClient({
         uri: `${process.env.NEXT_PUBLIC_URL_SERVER_GRAPHQL}`,
-        cache: new InMemoryCache()
+        cache: new InMemoryCache(),
+        //
     });
 
     return <ApolloProvider client={client}>{children}</ApolloProvider>

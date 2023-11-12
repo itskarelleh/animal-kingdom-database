@@ -21,5 +21,12 @@ const handler = startServerAndCreateNextHandler<NextRequest>(server, {
     context: async (req, res) => ({ req, res, prisma }),
 });
 
-// export { handler as GET, handler as POST };
-export { handler as POST };
+export async function GET(request: NextRequest) {
+    return handler(request);
+}
+
+
+export async function POST(request: NextRequest) {
+    return handler(request);
+}
+

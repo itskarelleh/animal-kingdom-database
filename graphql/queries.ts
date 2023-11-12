@@ -1,9 +1,7 @@
-// import { gql } from "@apollo/client";
-import {OperationVariables, QueryOptions } from "@apollo/client";
 import { gql } from "graphql-tag"
 
 export const GET_ANIMAL = gql`
-    query GetAnimal($name: String) {
+    query Animal($name: String!) {
         animal(name: $name) {
             id
             name
@@ -36,6 +34,7 @@ export const GET_ANIMALS_BY_NAME = gql`
             id
             name
             family
+            thumbnail
             order
             conservationStatus
         }    
