@@ -7,6 +7,8 @@ export const GET_ANIMAL = gql`
             name
             description
             family
+            thumbnail
+            bio
             class
             order
             phylum
@@ -41,12 +43,20 @@ export const GET_ANIMALS_BY_NAME = gql`
     }
 `;
 
+export const GET_CATEGORY = gql`
+    query GetAnimalCategories($category: AnimalCategory!) {
+        animalCategories(category: $category)
+    }
+`;
+
+
 export type AnimalData = {
-    animal: {
         id: number;
         name: string;
         description: string;
         conservationStatus: string;
+        thumbnail: string;
+        bio: string;
         phylum: string;
         subPhylum: string;
         class: string;
@@ -54,8 +64,14 @@ export type AnimalData = {
         family: string;
         createdAt: string;
         updatedAt: string;
-    };
 };
+
+export type Thumbnail = {
+    thumbnail: {
+        src: string;
+        alt: string;
+    }
+}
 
 export type AnimalVariables = {
     name: string;

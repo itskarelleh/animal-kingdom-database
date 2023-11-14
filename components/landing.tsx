@@ -10,10 +10,11 @@ import AnimalCard from "@/components/animal/AnimalCard";
 import {useQuery} from "@apollo/client";
 import Image from "next/image";
 import { GET_ANIMALS_BY_NAME } from "@/graphql/queries";
+import SearchInput from "@/components/SearchInput";
 
 export function Landing() {
 
-  const names = ["dog", "eagle", "gorilla"];
+  const names = ["dog", "eagle", "gorilla", "cat"];
 
   const { data, loading, error } = useQuery(GET_ANIMALS_BY_NAME, {
     variables: { names }
@@ -28,93 +29,26 @@ export function Landing() {
   return (
     <>
       <section
-        className="w-full h-screen flex flex-row justify-evenly bg-[#f8f7ec]"
-        style={{
-          backgroundImage: "url('/placeholder.svg?height=1080&width=1920')",
-        }}
+        className="w-full h-screen flex flex-col justify-evenly"
       >
         <div className="flex flex-col justify-center items-center h-full">
-          <h1 className="text-5xl font-bold">Welcome to Animal Database</h1>
-          <p className="text-xl">Discover your favorite animals</p>
+          <h1 className="text-5xl font-bold">Welcome to Animal Kingdom Database</h1>
+          <p className="text-xl">Discover more about your favorite animals</p>
           <div className="mt-8 flex">
-            <Input className="mr-2 flex-grow" placeholder="Search animals..." />
-            <Button type="submit">Search</Button>
+            <SearchInput />
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center h-full">
-          <Image src={"/hero-img.webp"} alt={"hero image"} width={600} height={600} />
+        <div className="p-8 w-4/5 mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 mt-6 relative">
+          {animals && animals.map((animal : any) => (
+              <Link className="relative" key={animal.id} href={`/animal/${animal.name}`}>
+                <AnimalCard key={animal.id} animal={animal} />
+              </Link>
+          ))}
         </div>
       </section>
-      <section className="w-full py-12 bg-white dark:bg-slate-800">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center">Featured Animals</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-6">
-            {animals && animals.map((animal : any) => (
-                <Link key={animal.id} href={`/animal/${animal.name}`}>
-                  <AnimalCard key={animal.id} animal={animal} />
-                </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-      <footer className="w-full bg-slate-800 text-white py-8">
+      <footer className="w-full bg-slate-800 dark:bg-slate-950 text-white py-8">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
-            <div>
-              <h3 className="text-lg font-semibold">Follow Us</h3>
-              <div className="flex space-x-4 mt-2">
-                <Link href="#">
-                  <svg
-                    className=" h-5 w-5"
-                    fill="none"
-                    height="24"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                  </svg>
-                </Link>
-                <Link href="#">
-                  <svg
-                    className=" h-5 w-5"
-                    fill="none"
-                    height="24"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-                  </svg>
-                </Link>
-                <Link href="#">
-                  <svg
-                    className=" h-5 w-5"
-                    fill="none"
-                    height="24"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect height="20" rx="5" ry="5" width="20" x="2" y="2" />
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
             <p className="text-sm">© 2023 Animal Database. All rights reserved.</p>
           </div>
         </div>

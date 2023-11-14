@@ -1,19 +1,12 @@
+import AnimalThumbnail from "@/components/animal/AnimalThumbnail";
 export default function AnimalCard({ animal } : any) {
 
     return (
         <>
-            <div className="rounded overflow-hidden shadow-lg">
-                <img
-                    alt="Animal"
-                    className="w-full h-56 object-cover"
-                    height="200"
-                    src={animal.thumbnail}
-                    style={{
-                        aspectRatio: "200/200",
-                        objectFit: "cover",
-                    }}
-                    width="200"
-                />
+            <div className="relative rounded overflow-hidden shadow-lg dark:bg-slate-800 dark:hover:bg-slate-800/50 transition-all ease-linear">
+                <div className="flex-shrink-0">
+                    <AnimalThumbnail thumbnail={animal.thumbnail} alt={animal.name} />
+                </div>
                 <div className="px-6 py-4">
                     <div className="">
                         <h2 className="font-bold text-xl mb-2 capitalize">{animal.name}</h2>

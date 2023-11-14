@@ -1,4 +1,4 @@
-import { Context } from '@/app/api/graphql/route';
+import {Context} from '@/app/api/graphql/route';
 
 export const resolvers = {
     Query: {
@@ -21,14 +21,23 @@ export const resolvers = {
                     }
                 }
             })
+        },animalCategories: async (_parent: any, args: any, context: Context) => {
+            const { category } = args;
+            let fieldName : any;
+            switch (category) {
+                case 'FAMILY': fieldName = 'family'; break;
+                case 'ORDER': fieldName = 'order'; break;
+                case 'CLASS': fieldName = 'class'; break;
+                case 'PHYLUM': fieldName = 'phylum'; break;
+                default: throw new Error('Invalid category');
+            }
+
+            const results = await context.prisma.animal.findMany({
+                select: { [fieldName]: true },
+                distinct: [fieldName]
+            });
+            return results.map(item => item[fieldName]);
         },
-        animalsByFamily: async (_parent: any, args: any, context: Context) => {
-            return context.prisma.animal.findMany({
-                where: {
-                    family: args.family
-                }
-            })
-        }
     },
     Mutation: {
         addAnimal: async (_parent: any, args: any, context: Context) => {
@@ -51,13 +60,12 @@ export const resolvers = {
             if(uploadResponse.status  === 200) {
                 const pathToUploadedThumbnail = await uploadResponse.text();
 
-                const createdAnimal = await context.prisma.animal.create({
-                    data : { ...args.input,
+                return await context.prisma.animal.create({
+                    data: {
+                        ...args.input,
                         thumbnail: pathToUploadedThumbnail, // Replace with the actual path
                     },
                 });
-
-                return createdAnimal;
             } else {
                 throw new Error('File upload failed');
             }

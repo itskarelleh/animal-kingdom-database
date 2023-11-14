@@ -6,6 +6,7 @@ export const typeDefs = gql`
         animals: [Animal]
         animalsByNames(names: [String]): [Animal]
         animalsByFamily(family: String): [Animal]
+        animalCategories(category: String): [String]
     }
     
     type Animal {

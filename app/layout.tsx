@@ -4,8 +4,8 @@ import { Inter } from 'next/font/google'
 import {Nav} from "@/components/nav";
 import Providers from "@/components/Providers";
 import React from "react";
-
 const inter = Inter({ subsets: ['latin'] })
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,11 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className + "text-slate-900"}>
-              <Providers>
-                  <Nav />
-                  {children}
-              </Providers>
+      <body className={inter.className + "text-slate-900 dark:bg-slate-900"}>
+              <ThemeProvider attribute="class" defaultTheme="light">
+                  <Providers>
+                      <Nav />
+                      {children}
+                  </Providers>
+              </ThemeProvider>
       </body>
     </html>
   )

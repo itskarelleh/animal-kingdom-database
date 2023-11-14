@@ -1,20 +1,53 @@
 "use client"
+import React from "react";
 import {useQuery} from "@apollo/client";
-import {GET_ANIMAL} from "@/graphql/queries";
+import {AnimalData, GET_ANIMAL} from "@/graphql/queries";
 import {
     Card,
     CardContent,
-    CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import Image from "next/image";
+import {rawMarkup} from "@/utils/markdownParser";
+import AnimalThumbnail from "@/components/animal/AnimalThumbnail";
 
 type Props = {
     params: {
         name: string;
     };
 };
+
+enum ConservationStatus {
+    EX = 'Extinct',
+    EW = 'Extinct in the Wild',
+    CR = 'Critically Endangered',
+    EN = 'Endangered',
+    VU = 'Vulnerable',
+    NT = 'Near Threatened',
+    LC = 'Least Concern',
+    DD = 'Data Deficient',
+    NE = 'Not Evaluated',
+    NA = 'Not Applicable'
+}
+
+const conservationStatusLabels: { [key in keyof typeof ConservationStatus]: string } = {
+    EX: 'Extinct',
+    EW: 'Extinct in the Wild',
+    CR: 'Critically Endangered',
+    EN: 'Endangered',
+    VU: 'Vulnerable',
+    NT: 'Near Threatened',
+    LC: 'Least Concern',
+    DD: 'Data Deficient',
+    NE: 'Not Evaluated',
+    NA: 'Not Applicable'
+};
+
+const getConservationStatusLabel = (statusCode: string): string => {
+    // @ts-ignore
+    return conservationStatusLabels[statusCode] || 'Unknown Status';
+}
 
 export default function Page({ params: { name } } : Props) {
 
@@ -31,21 +64,46 @@ export default function Page({ params: { name } } : Props) {
         return <p className="flex flex-col h-screen w-full items-center justify-center">Error getting {name}</p>
     }
 
-    const animal = data?.animal;
-
-    console.log(animal);
+    const animal : AnimalData = data?.animal;
 
     return (
-        <div className="grid grid-cols-12">
+        <div className="grid grid-cols-12 gap-4 p-8">
             <div className="col-span-12 md:col-span-4">
-
+                <header className="border-none flex flex-row md:flex-col justify-center md:justify-normal items-center md:items-normal sticky top-4">
+                    <div className="p-8 w-1/2 md:w-full flex-shrink-0">
+                        <AnimalThumbnail thumbnail={animal.thumbnail} alt={animal.name} />
+                    </div>
+                    <div className="w-1/2 md:w-full space-y-2 p-8">
+                        <h1 className="capitalize mb-4">
+                                {animal.name}
+                        </h1>
+                        <KeyValueField keyName="order" value={animal.order} />
+                        <KeyValueField keyName="class" value={animal.class} />
+                        <KeyValueField keyName="family" value={animal.family} />
+                        <KeyValueField keyName="phylum" value={animal.phylum} />
+                        <KeyValueField keyName="subphylum" value={animal.subPhylum} />
+                        <KeyValueField keyName="conservation"
+                                       value={getConservationStatusLabel(animal.conservationStatus)} />
+                    </div>
+                </header>
             </div>
             <div className="col-span-12 md:col-span-8">
-                {animal.name}
-                {animal.subPhylum}
-                {animal.phylum}
-
+                {animal.bio === null ? 'No bio yet. Coming soon' :
+                    (
+                        <div role="main" className={"[&>p]:mb-8"} dangerouslySetInnerHTML={{ __html: rawMarkup(animal.bio) }}>
+                        </div>
+                    )}
             </div>
         </div>
     )
 }
+
+//The Key does not have to match
+// the key from the database
+const KeyValueField = ({ keyName, value } : { keyName: any, value: any }) => (
+    <div className="grid grid-cols-12 w-full">
+        <span className="col-span-5 text-slate-500">{keyName}</span>
+        <span className="col-span-7">{value}</span>
+        <span className="sr-only">{keyName} : {value}</span>
+    </div>
+)
