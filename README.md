@@ -1,13 +1,6 @@
-# Animal Kingdom API
-🚧 Work in Progress 🚧
+# Animal Kingdom Database
 
-An API that allows for finding facts and details about all the animals
-in the animal kingdom.
-
-Users are able to find out all the animals by their phylum, class, and species. 
-
-## Features
-- Users will be able to view and search animals by their name, family, class, phylum, and more.
+A web app that users can search about animals and find out more about their classifications such as phylum, class, order and more. 
 
 ## Stack
 - Next.js
