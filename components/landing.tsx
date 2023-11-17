@@ -29,16 +29,16 @@ export function Landing() {
   return (
     <>
       <section
-        className="w-full h-screen flex flex-col justify-evenly"
+        className="w-full min-h-screen flex flex-col justify-evenly"
       >
-        <div className="flex flex-col justify-center items-center h-full">
+        <div className="flex flex-col justify-center items-center">
           <h1 className="text-5xl font-bold">Welcome to Animal Kingdom Database</h1>
           <p className="text-xl">Discover more about your favorite animals</p>
-          <div className="mt-8 flex">
+          <div className="flex">
             <SearchInput />
           </div>
         </div>
-        <div className="p-8 w-4/5 mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 mt-6 relative">
+        <div className="px-8 w-4/5 mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 relative">
           {animals && animals.map((animal : any) => (
               <Link className="relative" key={animal.id} href={`/animal/${animal.name}`}>
                 <AnimalCard key={animal.id} animal={animal} />
@@ -46,13 +46,6 @@ export function Landing() {
           ))}
         </div>
       </section>
-      <footer className="w-full bg-slate-800 dark:bg-slate-950 text-white py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center">
-            <p className="text-sm">© 2023 Animal Database. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </>
   )
 }

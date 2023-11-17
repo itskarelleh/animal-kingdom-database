@@ -2,13 +2,6 @@
 import React from "react";
 import {useQuery} from "@apollo/client";
 import {AnimalData, GET_ANIMAL} from "@/graphql/queries";
-import {
-    Card,
-    CardContent,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-import Image from "next/image";
 import {rawMarkup} from "@/utils/markdownParser";
 import AnimalThumbnail from "@/components/animal/AnimalThumbnail";
 
@@ -17,6 +10,8 @@ type Props = {
         name: string;
     };
 };
+
+
 
 enum ConservationStatus {
     EX = 'Extinct',
