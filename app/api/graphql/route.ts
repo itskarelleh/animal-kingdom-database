@@ -6,7 +6,6 @@ import { typeDefs } from "@/graphql/schema";
 import {NextRequest} from "next/server";
 import { prisma } from "@/prisma/db";
 
-
 export type Context = {
     prisma: PrismaClient
 };
@@ -14,7 +13,7 @@ export type Context = {
 const server = new ApolloServer<Context | object>({
     resolvers,
     typeDefs,
-    introspection: process.env.NODE_ENV !== "production",
+    introspection: process.env.VERCEL_ENV !== "production",
 });
 
 const handler = startServerAndCreateNextHandler<NextRequest>(server, {

@@ -69,7 +69,7 @@ export default function Page({ params: { name } } : Props) {
     return (
         <div className="grid grid-cols-12 gap-4 p-8">
             <div className="col-span-12 md:col-span-4">
-                <header className="border-none flex flex-row md:flex-col justify-center md:justify-normal items-center md:items-normal sticky top-4">
+                <header className="border-none flex flex-row md:flex-col justify-center md:justify-normal items-center md:items-normal sticky top-16">
                     <div className="p-8 w-1/2 md:w-full flex-shrink-0">
                         <AnimalThumbnail thumbnail={animal.thumbnail} alt={animal.name} />
                     </div>
