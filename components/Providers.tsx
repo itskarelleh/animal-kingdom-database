@@ -18,8 +18,6 @@ const Providers = ({ children } : { children: ReactNode }) => {
         //
     });
 
-    console.log(`${process.env.NEXT_PUBLIC_BASE_URL}/${process.env.NEXT_PUBLIC_URL_SERVER_GRAPHQL}`);
-
     return <ApolloProvider client={client}>{children}</ApolloProvider>
 }
 

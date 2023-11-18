@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 import {useQuery} from "@apollo/client";
-import {AnimalData, GET_ANIMAL} from "@/graphql/queries";
+import {AnimalData, GET_ANIMAL} from '@/graphql/queries';
 import {rawMarkup} from "@/utils/markdownParser";
 import AnimalThumbnail from "@/components/animal/AnimalThumbnail";
 

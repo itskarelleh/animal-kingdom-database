@@ -44,7 +44,7 @@ export const GET_ANIMALS_BY_NAME = gql`
 `;
 
 export const GET_CATEGORY = gql`
-    query GetAnimalCategories($category: AnimalCategory!) {
+    query GetAnimalCategories($category: String!) {
         animalCategories(category: $category)
     }
 `;

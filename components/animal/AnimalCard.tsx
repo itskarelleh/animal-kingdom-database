@@ -1,5 +1,6 @@
 import AnimalThumbnail from "@/components/animal/AnimalThumbnail";
-export default function AnimalCard({ animal } : any) {
+import {AnimalData} from "@/graphql/queries";
+export default function AnimalCard({ animal } : { animal : AnimalData }) {
 
     return (
         <>

@@ -29,14 +29,15 @@ export const resolvers = {
                 case 'ORDER': fieldName = 'order'; break;
                 case 'CLASS': fieldName = 'class'; break;
                 case 'PHYLUM': fieldName = 'phylum'; break;
+                case 'CONSERVATION': fieldName = 'conservationStatus'; break;
                 default: throw new Error('Invalid category');
             }
 
-            const results = await context.prisma.animal.findMany({
-                select: { [fieldName]: true },
+            return await context.prisma.animal.findMany({
+                select: {[fieldName]: true},
                 distinct: [fieldName]
             });
-            return results.map(item => item[fieldName]);
+            // return results.map(item => item[fieldName]);
         },
     },
     Mutation: {

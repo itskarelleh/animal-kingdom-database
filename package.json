@@ -10,7 +10,8 @@
     "graphql": "next dev -p 3000",
     "prisma:format": "prisma format",
     "prisma:generate": "prismate generate",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "cypress:open": "cypress open"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
