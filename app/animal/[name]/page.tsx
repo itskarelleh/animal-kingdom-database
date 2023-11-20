@@ -55,7 +55,6 @@ export default function Page({ params: { name } } : Props) {
     }
 
     if(error) {
-        console.log("Error: ", error);
         return <p className="flex flex-col h-screen w-full items-center justify-center">Error getting {name}</p>
     }
 
@@ -65,10 +64,10 @@ export default function Page({ params: { name } } : Props) {
         <div className="grid grid-cols-12 gap-4 p-8">
             <div className="col-span-12 md:col-span-4">
                 <header className="border-none flex flex-row md:flex-col justify-center md:justify-normal items-center md:items-normal sticky top-16">
-                    <div className="p-8 w-1/2 md:w-full flex-shrink-0">
+                    <div className="p-auto md:p-8 w-1/3 md:w-full flex flex-col items-center justify-center h-full flex-shrink-0">
                         <AnimalThumbnail thumbnail={animal.thumbnail} alt={animal.name} />
                     </div>
-                    <div className="w-1/2 md:w-full space-y-2 p-8">
+                    <div className="w-2/3 md:w-full space-y-2 p-8">
                         <h1 className="capitalize mb-4">
                                 {animal.name}
                         </h1>
@@ -77,13 +76,13 @@ export default function Page({ params: { name } } : Props) {
                         <KeyValueField keyName="family" value={animal.family} />
                         <KeyValueField keyName="phylum" value={animal.phylum} />
                         <KeyValueField keyName="subphylum" value={animal.subPhylum} />
-                        <KeyValueField keyName="conservation"
-                                       value={getConservationStatusLabel(animal.conservationStatus)} />
+                        {animal.conservationStatus != 'NA' && <KeyValueField keyName="conservation"
+                                       value={getConservationStatusLabel(animal.conservationStatus)} /> }
                     </div>
                 </header>
             </div>
             <div className="col-span-12 md:col-span-8">
-                {animal.bio === null ? 'No bio yet. Coming soon' :
+                {animal.bio === null ? (<div role="main" className="">No bio yet. Coming soon </div> ):
                     (
                         <div role="main" className={"[&>p]:mb-8"} dangerouslySetInnerHTML={{ __html: rawMarkup(animal.bio) }}>
                         </div>
@@ -97,8 +96,8 @@ export default function Page({ params: { name } } : Props) {
 // the key from the database
 const KeyValueField = ({ keyName, value } : { keyName: any, value: any }) => (
     <div className="grid grid-cols-12 w-full">
-        <span className="col-span-5 text-slate-500">{keyName}</span>
-        <span className="col-span-7">{value}</span>
-        <span className="sr-only">{keyName} : {value}</span>
+        <span className="text-sm col-span-6 text-slate-500">{keyName}</span>
+        <span className="text-sm col-span-6">{value}</span>
+        <span className="text-sm sr-only">{keyName} : {value}</span>
     </div>
 )

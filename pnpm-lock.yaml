@@ -122,9 +122,6 @@ dependencies:
   marked:
     specifier: ^10.0.0
     version: 10.0.0
-  micro-cors:
-    specifier: ^0.1.1
-    version: 0.1.1
   next:
     specifier: 14.0.2-canary.18
     version: 14.0.2-canary.18(@babel/core@7.23.2)(react-dom@18.2.0)(react@18.2.0)
@@ -10118,11 +10115,6 @@ packages:
   /methods@1.1.2:
     resolution: {integrity: sha512-iclAHeNqNm68zFtnZ0e+1L2yUIdvzNoauKU4WBA3VvH/vPFieF7qfRlwUZU+DA9P9bPXIS90ulxoUoCH23sV2w==}
     engines: {node: '>= 0.6'}
-    dev: false
-
-  /micro-cors@0.1.1:
-    resolution: {integrity: sha512-6WqIahA5sbQR1Gjexp1VuWGFDKbZZleJb/gy1khNGk18a6iN1FdTcr3Q8twaxkV5H94RjxIBjirYbWCehpMBFw==}
-    engines: {node: '>=6'}
     dev: false
 
   /micro@9.4.1:

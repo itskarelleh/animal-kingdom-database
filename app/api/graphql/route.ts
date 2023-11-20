@@ -21,11 +21,17 @@ const handler = startServerAndCreateNextHandler<NextRequest>(server, {
 });
 
 export async function GET(request: NextRequest) {
+    request.headers.append('Access-Control-Allow-Origin', '*');
+    request.headers.append('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    request.headers.append('Access-Control-Allow-Headers','Content-Type, Authorization');
     return handler(request);
 }
 
 
 export async function POST(request: NextRequest) {
+    request.headers.append('Access-Control-Allow-Origin', '*');
+    request.headers.append('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    request.headers.append('Access-Control-Allow-Headers','Content-Type, Authorization');
     return handler(request);
 }
 

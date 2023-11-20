@@ -1,9 +1,8 @@
-import {gql} from "graphql-tag";
+import { gql } from "graphql-tag";
 
-export const CREATE_ANIMAL = gql`
-mutation CreateAnimal($input: AnimalInput!) {
-  createAnimal(input: $input) {
-    id
+export const ADD_ANIMAL = gql`
+mutation ADDAnimal($input: AnimalInput!) {
+  addAnimal(input: $input) {
     name
     description
     family

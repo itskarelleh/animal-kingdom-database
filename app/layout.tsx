@@ -23,8 +23,10 @@ export default function RootLayout({
               <ThemeProvider attribute="class" defaultTheme="system">
                   <Providers>
                       <Nav />
-                      {children}
-                      <footer className="w-full bg-slate-800 dark:bg-slate-950 text-white py-8">
+                      <main>
+                          {children}
+                      </main>
+                      <footer className="absolute bottom-0 h-16 w-full bg-slate-800 dark:bg-slate-950 text-white py-8 min-h-screen">
                           <div className="container mx-auto px-4">
                               <div className="flex justify-between items-center">
                                   <p className="text-sm">© 2023 Animal Database. All rights reserved.</p>
