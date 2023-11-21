@@ -79,7 +79,7 @@
   }
 
   h2 {
-    @apply scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0;
+    @apply scroll-m-20 pb-2 text-3xl font-semibold tracking-tight;
   }
 
   h3 {
@@ -87,6 +87,6 @@
   }
 
   p {
-    @apply leading-7 [&:not(:first-child)]:mt-6;
+    @apply leading-7;
   }
 }

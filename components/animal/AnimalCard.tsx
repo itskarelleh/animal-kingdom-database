@@ -9,12 +9,9 @@ export default function AnimalCard({ animal } : { animal : AnimalData }) {
                 <div className="flex-shrink-0">
                     <AnimalThumbnail thumbnail={animal.thumbnail} alt={animal.name} />
                 </div>
-                <div className="px-6 py-4">
-                    <div className="">
-                        <h2 className="font-bold text-xl mb-2 capitalize">{animal.name}</h2>
-                    </div>
-                    <p className="text-gray-700 dark:text-gray-200 text-base">{animal.description}</p>
-                    <p className="text-gray-700 dark:text-gray-200 text-base">{animal.description}</p>
+                <div className="px-6 h-28">
+                    <h2 className="font-bold text-xl capitalize mt-2">{animal.name}</h2>
+                    <p className="text-slate-700 dark:text-slate-200 text-sm md:text-base mt-0">{animal.description}</p>
                 </div>
             </div>
         </>

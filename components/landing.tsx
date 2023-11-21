@@ -33,7 +33,7 @@ export function Landing() {
       >
         <div className="px-8 flex flex-col justify-center items-center">
           <h1 className="text-4xl md:text-5xl font-bold">Discover more about your favorite animals</h1>
-          <div className="flex">
+          <div className="flex mt-12 w-1/2 mx-auto">
             <SearchInput />
           </div>
         </div>

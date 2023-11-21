@@ -35,10 +35,8 @@ export const GET_ANIMALS_BY_NAME = gql`
         animalsByNames(names: $names) {
             id
             name
-            family
             thumbnail
-            order
-            conservationStatus
+            description
         }    
     }
 `;

@@ -4,7 +4,7 @@ import ThemeToggle from '@/components/ThemeToggle';
 import Link from "next/link";
 import SearchInput from '@/components/SearchInput';
 import { Search } from 'lucide-react';
-import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from '@/components/ui/dialog';
+import {Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from '@/components/ui/dialog';
 import {Button} from '@/components/ui/button';
 
 function Nav() {
@@ -26,7 +26,7 @@ function Nav() {
                             <DialogHeader>
                                 <DialogTitle>Search</DialogTitle>
                             </DialogHeader>
-                            <SearchInput />
+                                <SearchInput isDialogClose={true} />
                         </DialogContent>
                     </Dialog>
                     <ThemeToggle />
