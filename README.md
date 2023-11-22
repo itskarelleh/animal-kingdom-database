@@ -37,8 +37,6 @@ or
 pnpm run dev
 ```
 
-
-
 [//]: # (To seed database:)
 [//]: # (npx ts-node ./prisma/seed.ts)
 
