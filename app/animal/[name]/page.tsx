@@ -4,6 +4,8 @@ import {useQuery} from "@apollo/client";
 import {AnimalData, GET_ANIMAL} from '@/graphql/queries';
 import {rawMarkup} from "@/utils/markdownParser";
 import AnimalThumbnail from "@/components/animal/AnimalThumbnail";
+import {useAuth} from "@clerk/nextjs";
+import {Button} from "@/components/ui/button";
 
 type Props = {
     params: {
@@ -49,6 +51,8 @@ export default function Page({ params: { name } } : Props) {
         variables: { name }
     });
 
+    const { isSignedIn } = useAuth();
+
     if(loading) {
         return <p className="flex flex-col h-screen w-full items-center justify-center">Fetching {name}</p>
     }
@@ -81,6 +85,10 @@ export default function Page({ params: { name } } : Props) {
                 </header>
             </div>
             <div className="col-span-12 md:col-span-8">
+                {isSignedIn && (<div className="w-full flex flex-row justify-end">
+                        <Button><a href={`/contribute/edit/${name}`}>Edit</a></Button>
+                    </div>
+                    )}
                 {animal.bio.length <= 0 ? (<div className="text-center">No bio for {animal.name} yet. Coming soon </div> )
                     :
                     (

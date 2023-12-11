@@ -6,6 +6,7 @@ import SearchInput from '@/components/SearchInput';
 import { Search } from 'lucide-react';
 import {Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from '@/components/ui/dialog';
 import {Button} from '@/components/ui/button';
+import ContributorMenu from "@/components/contributors/ContributorMenu";
 
 function Nav() {
 
@@ -30,6 +31,7 @@ function Nav() {
                         </DialogContent>
                     </Dialog>
                     <ThemeToggle />
+                    <ContributorMenu />
                 </div>
             </div>
         </nav>
