@@ -6,6 +6,7 @@ import {
     InMemoryCache,
     ApolloProvider
 } from "@apollo/client"
+import { ClerkProvider } from "@clerk/nextjs";
 
 
 type Props = {}
@@ -18,7 +19,9 @@ const Providers = ({ children } : { children: ReactNode }) => {
         //
     });
 
-    return <ApolloProvider client={client}>{children}</ApolloProvider>
+    return <ApolloProvider client={client}>
+        {children}
+    </ApolloProvider>
 }
 
 export default Providers;

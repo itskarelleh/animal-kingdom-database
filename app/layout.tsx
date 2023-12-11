@@ -6,16 +6,15 @@ import Providers from "@/components/Providers";
 import React from "react";
 
 const inter = Inter({subsets: ['latin']})
-import {ThemeProvider} from "@/components/ThemeProvider";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
     title: 'Animal Kingdom',
     description: 'Find information about your favorite animal',
 }
 
-export default function RootLayout({
-                                       children,
-                                   }: {
+export default function RootLayout({ children}: {
     children: React.ReactNode
 }) {
     return (
@@ -23,6 +22,7 @@ export default function RootLayout({
             <body className={inter.className + "text-slate-900 dark:bg-slate-900 min-h-screen"}>
             <ThemeProvider attribute="class" defaultTheme="system">
                 <Providers>
+                    <ClerkProvider>
                     <Nav/>
                     <main className="min-h-screen">
                         {children}
@@ -34,6 +34,7 @@ export default function RootLayout({
                             </div>
                         </div>
                     </footer>
+                    </ClerkProvider>
                 </Providers>
             </ThemeProvider>
             </body>
