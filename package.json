@@ -21,7 +21,7 @@
     "@adminjs/prisma": "^5.0.1",
     "@adminjs/sql": "^2.2.1",
     "@apollo/client": "^3.8.6",
-    "@apollo/experimental-nextjs-app-support": "^0.4.3",
+    "@apollo/experimental-nextjs-app-support": "^0.7.0",
     "@apollo/sandbox": "^2.5.1",
     "@apollo/server": "^4.9.3",
     "@as-integrations/next": "^2.0.2",
