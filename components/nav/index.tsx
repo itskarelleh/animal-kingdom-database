@@ -5,7 +5,6 @@ import Link from "next/link";
 import SearchInput from '@/components/SearchInput';
 import { Search } from 'lucide-react';
 import {Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from '@/components/ui/dialog';
-import {Button} from '@/components/ui/button';
 
 function Nav() {
 
@@ -19,9 +18,7 @@ function Nav() {
                     </Link>
                 <div id="menu-right" className="w-full relative flex flex-row justify-end items-center">
                     <Dialog>
-                        <Button variant="ghost" size="icon">
-                            <DialogTrigger><Search /><span className="sr-only">search</span></DialogTrigger>
-                        </Button>
+                        <DialogTrigger><Search /><span className="sr-only">search</span></DialogTrigger>
                         <DialogContent className="dark:bg-slate-800">
                             <DialogHeader>
                                 <DialogTitle>Search</DialogTitle>

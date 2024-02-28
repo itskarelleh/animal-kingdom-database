@@ -49,8 +49,10 @@ export default function SearchInput({ isDialogClose } : { isDialogClose?: boolea
 
     return (
         <div className="w-full border-b border-b-slate-400 flex flex-row items-center">
+            {/* Search icon */}
             <Search />
             <div className="flex flex-col w-full h-full relative">
+                {/* Search input field with placeholder text and value from state. */}
                 <Input
                     className="border-none rounded-none bg-transparent w-full"
                     type="text"

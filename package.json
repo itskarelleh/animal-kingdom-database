@@ -25,6 +25,7 @@
     "@apollo/sandbox": "^2.5.1",
     "@apollo/server": "^4.9.3",
     "@as-integrations/next": "^2.0.2",
+    "@axe-core/react": "^4.8.5",
     "@clerk/clerk-sdk-node": "^4.12.21",
     "@hookform/resolvers": "^3.3.2",
     "@prisma/client": "^5.5.2",
