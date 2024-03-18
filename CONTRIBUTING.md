@@ -1,9 +1,20 @@
 # How to Contribute to This Project
-Thank you so much for considering contributing to this project. Whether you are a beginner or an expert, there are many ways you can contribute to the Animal Kingdom Database, with or without code. 
+Thank you so much for contributing to this project. Whether you are a beginner or an expert, there are many ways you can contribute to the Animal Kingdom Database.
 
+You can contribute to this project in many ways, including:
+
+- Reporting a bug
+- Adding a new animal 
+- Fixing a bug
+- Improving the documentation
+- Giving suggestions
+- Refactoring the code
 
 ## Open Issues
-Suggestions, bug reports, and more are certainly welcome!
+There are plenty of templates, each of which have guidelines. The common types of issues are:
+- Bug Report
+- New Animal - 
+- Animal Bio Update - write or update the bio/background for an animal
 
 ## Pull Requests
 If you are working on an issue that involves you working on the codebase of this project, you will need to do the following:
