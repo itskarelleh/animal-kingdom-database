@@ -1,0 +1,43 @@
+name: Send Data to Budibase
+
+on:
+  issues:
+    types: [labeled]
+  issue_comment:
+    types: [created]
+
+jobs:
+  add_animal:
+    if: github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'to be added')
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Extract issue information
+        id: extract_info
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const body = context.payload.issue.body;
+            const matches = body.match(/```\n([\s\S]+?)\n```/);
+            const animalData = matches && matches.length > 1 ? matches[1] : null;
+            console.log(animalData);
+            return { animalData: animalData };
+
+      - name: Send data to Budibase
+        id: send_to_budibase
+        run: |
+          # Your code to send data to Budibase using extracted animalData
+
+      - name: Update PostgreSQL database
+        id: update_database
+        run: |
+          # Your code to update PostgreSQL database
+
+      - name: Comment on issue
+        if: steps.send_to_budibase.outcome == 'success' && steps.update_database.outcome == 'success'
+        run: |
+          echo 'Animal has been successfully added to Budibase and PostgreSQL database.'
