@@ -8,6 +8,7 @@ A web app allows users to search about animals and learn more about their classi
 - Shadcn
 - Prisma
 - GraphQL
+- TypeScript
 
 ## Setting Up Locally
 
