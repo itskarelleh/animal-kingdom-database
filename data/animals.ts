@@ -6,7 +6,7 @@
  *      phylum: '',
  *      subPhylum: '',
  *      classification: '',
- *      order: '',
+ *      animalOrder: '',
  *      family: '',
  *      conservationStatus: ''
  *  };
@@ -38,7 +38,7 @@ type AnimalCreateManyInput = {
     phylum: string
     subPhylum: string
     classification: string
-    order: string
+    animalOrder: string
     family: string
     // conservationStatus?
 }
@@ -50,7 +50,7 @@ export const animals : any = [
         phylum: 'Chordata',
         subPhylum: 'Vertebrata',
         classification: 'Mammalia',
-        order: 'Carnivora',
+        animalOrder: 'Carnivora',
         family: 'Felidae',
         conservationStatus: 'NA'
     },
@@ -60,7 +60,7 @@ export const animals : any = [
         phylum: 'Chordata',
         subPhylum: 'Verebrata',
         classification: 'Mammalia',
-        order: 'Carnivora',
+        animalOrder: 'Carnivora',
         family: 'Canidae',
         conservationStatus: 'NA'
     },
@@ -70,7 +70,7 @@ export const animals : any = [
         phylum: 'Chordata',
         subPhylum: 'Vertebrata',
         classification: 'Mammalia',
-        order: 'Primates',
+        animalOrder: 'Primates',
         family: 'Hominidae',
         conservationStatus: 'CR',
     },
@@ -80,7 +80,7 @@ export const animals : any = [
         phylum: 'Chordata',
         subPhylum: 'Vertebrata',
         classification: 'Mammalia',
-        order: 'Carnivora',
+        animalOrder: 'Carnivora',
         family: 'Felidae',
         conservationStatus: 'VU',
     },
@@ -90,7 +90,7 @@ export const animals : any = [
         phylum: 'Chordata',
         subPhylum: 'Vertebrata',
         classification: 'Mammalia',
-        order: 'Proboscidea',
+        animalOrder: 'Proboscidea',
         family: 'Elephantidae',
         conservationStatus: 'EN',
     },
@@ -100,7 +100,7 @@ export const animals : any = [
         phylum: 'Chordata',
         subPhylum: 'Vertebrata',
         classification: 'Aves',
-        order: 'Accipitriformes',
+        animalOrder: 'Accipitriformes',
         family: 'Accipitridae',
         conservationStatus: 'LC',
     },
@@ -110,7 +110,7 @@ export const animals : any = [
         phylum: 'Chordata',
         subPhylum: 'Vertebrata',
         classification: 'Aves',
-        order: 'Psittaciformes',
+        animalOrder: 'Psittaciformes',
         family: 'Psittacidae',
         conservationStatus: 'LC',
     },
@@ -120,7 +120,7 @@ export const animals : any = [
         phylum: 'Chordata',
         subPhylum: 'Vertebrata',
         classification: 'Aves',
-        order: 'Sphenisciformes',
+        animalOrder: 'Sphenisciformes',
         family: 'Spheniscidae',
         conservationStatus: 'VU',
     },
@@ -130,7 +130,7 @@ export const animals : any = [
         phylum: 'Chordata',
         subPhylum: 'Vertebrata',
         classification: 'Reptilia',
-        order: 'Crocodylia',
+        animalOrder: 'Crocodylia',
         family: 'Crocodylidae',
         conservationStatus: 'LC',
     },
@@ -140,7 +140,7 @@ export const animals : any = [
         phylum: 'Chordata',
         subPhylum: 'Vertebrata',
         classification: 'Reptilia',
-        order: 'Testudines',
+        animalOrder: 'Testudines',
         family: 'Testudinidae',
         conservationStatus: 'VU',
     },
@@ -150,7 +150,7 @@ export const animals : any = [
         phylum: 'Chordata',
         subPhylum: 'Vertebrata',
         classification: 'Reptilia',
-        order: 'Serpentes',
+        animalOrder: 'Serpentes',
         family: 'Colubridae',
         conservationStatus: 'LC',
     },
@@ -160,7 +160,7 @@ export const animals : any = [
         phylum: 'Chordata',
         subPhylum: 'Vertebrata',
         classification: 'Amphibia',
-        order: 'Anura',
+        animalOrder: 'Anura',
         family: 'Bufonidae',
         conservationStatus: 'LC',
     },
@@ -170,7 +170,7 @@ export const animals : any = [
         phylum: 'Chordata',
         subPhylum: 'Vertebrata',
         classification: 'Amphibia',
-        order: 'Caudata',
+        animalOrder: 'Caudata',
         family: 'Salamandridae',
         conservationStatus: 'LC',
     },
@@ -180,7 +180,7 @@ export const animals : any = [
         phylum: 'Chordata',
         subPhylum: 'Vertebrata',
         classification: 'Amphibia',
-        order: 'Caudata',
+        animalOrder: 'Caudata',
         family: 'Salamandridae',
         conservationStatus: 'LC',
     },

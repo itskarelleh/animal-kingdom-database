@@ -10,7 +10,7 @@ export const GET_ANIMAL = gql`
             thumbnail
             bio
             classification
-            order
+            animalOrder
             phylum
             subPhylum
             conservationStatus
@@ -24,7 +24,7 @@ export const GET_ANIMALS = gql`
             id
             name
             family
-            order
+            animalOrder
             conservationStatus
         }
     }
@@ -58,7 +58,7 @@ export type AnimalData = {
         phylum: string;
         subPhylum: string;
         classification: string;
-        order: string;
+        animalOrder: string;
         family: string;
         createdAt: string;
         updatedAt: string;
