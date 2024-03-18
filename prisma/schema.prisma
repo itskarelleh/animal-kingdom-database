@@ -3,8 +3,8 @@
 
 datasource db {
   provider = "postgresql"
-  url = "postgres://default:3OF5JxfKUdbj@ep-restless-wave-86443684-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require&pgbouncer=true&connect_timeout=15"
-  directUrl = "postgres://default:3OF5JxfKUdbj@ep-restless-wave-86443684.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require"
+  url = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
 
