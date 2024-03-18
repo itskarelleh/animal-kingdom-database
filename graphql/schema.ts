@@ -21,6 +21,7 @@ export const typeDefs = gql`
       class: String
       order: String
       family: String
+      randomFacts: [String]
       createdAt: DateTime
       updatedAt: DateTime
     }
