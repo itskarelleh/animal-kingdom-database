@@ -26,7 +26,7 @@ export const resolvers = {
             let fieldName : any;
             switch (category) {
                 case 'FAMILY': fieldName = 'family'; break;
-                case 'ORDER': fieldName = 'order'; break;
+                case 'ANIMAL_ORDER': fieldName = 'animalOrder'; break;
                 case 'CLASSIFICATION': fieldName = 'class'; break;
                 case 'PHYLUM': fieldName = 'phylum'; break;
                 case 'CONSERVATION': fieldName = 'conservationStatus'; break;

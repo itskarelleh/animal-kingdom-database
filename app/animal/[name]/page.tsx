@@ -69,7 +69,7 @@ export default function Page({ params: { name } } : Props) {
                         <h1 className="capitalize mb-4">
                             {animal.name}
                         </h1>
-                        <KeyValueField keyName="order" value={animal.order} />
+                        <KeyValueField keyName="order" value={animal.animalOrder} />
                         <KeyValueField keyName="class" value={animal.classification} />
                         <KeyValueField keyName="family" value={animal.family} />
                         <KeyValueField keyName="phylum" value={animal.phylum} />

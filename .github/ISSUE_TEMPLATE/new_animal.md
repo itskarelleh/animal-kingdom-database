@@ -42,7 +42,7 @@ NA = 'Not Applicable'
     phylum: ''
     subPhylum: ''
     class: ''
-    order: ''
+    animal: ''
     family: ''
 }
 ```
