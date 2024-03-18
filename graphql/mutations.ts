@@ -6,7 +6,7 @@ mutation ADDAnimal($input: AnimalInput!) {
     name
     description
     family
-    classificationification
+    classification
     order
     phylum
     subPhylum
