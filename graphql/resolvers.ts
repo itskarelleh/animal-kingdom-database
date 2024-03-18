@@ -27,7 +27,7 @@ export const resolvers = {
             switch (category) {
                 case 'FAMILY': fieldName = 'family'; break;
                 case 'ORDER': fieldName = 'order'; break;
-                case 'CLASS': fieldName = 'class'; break;
+                case 'CLASSIFICATION': fieldName = 'class'; break;
                 case 'PHYLUM': fieldName = 'phylum'; break;
                 case 'CONSERVATION': fieldName = 'conservationStatus'; break;
                 default: throw new Error('Invalid category');

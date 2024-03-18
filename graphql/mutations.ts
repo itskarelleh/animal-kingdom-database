@@ -6,7 +6,7 @@ mutation ADDAnimal($input: AnimalInput!) {
     name
     description
     family
-    class
+    classificationification
     order
     phylum
     subPhylum
@@ -22,7 +22,7 @@ export const UPDATE_ANIMAL = gql`
         name
         description
         family
-        class
+        classification
         order
         phylum
         subPhylum
