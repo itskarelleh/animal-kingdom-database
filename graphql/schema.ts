@@ -18,7 +18,7 @@ export const typeDefs = gql`
       conservationStatus: ConservationStatus
       phylum: String
       subPhylum: String
-      class: String
+      classification: String
       order: String
       family: String
       createdAt: DateTime
@@ -49,7 +49,7 @@ export const typeDefs = gql`
       description: String!
       family: String!
       bio: String!
-      class: String!
+      classification: String!
       order: String!
       phylum: String!
       subPhylum: String

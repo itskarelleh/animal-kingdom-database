@@ -3,8 +3,8 @@
 
 datasource db {
   provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  url = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
 
@@ -21,7 +21,7 @@ model Animal {
   conservationStatus ConservationStatus?
   phylum             String
   subPhylum          String
-  class              String
+  classification     String @default("")
   order              String
   family             String
   createdAt          DateTime @default(now())

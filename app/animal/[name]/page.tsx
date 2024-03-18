@@ -11,7 +11,6 @@ type Props = {
     };
 };
 
-
 enum ConservationStatus {
     EX = 'Extinct',
     EW = 'Extinct in the Wild',
@@ -71,7 +70,7 @@ export default function Page({ params: { name } } : Props) {
                             {animal.name}
                         </h1>
                         <KeyValueField keyName="order" value={animal.order} />
-                        <KeyValueField keyName="class" value={animal.class} />
+                        <KeyValueField keyName="class" value={animal.classification} />
                         <KeyValueField keyName="family" value={animal.family} />
                         <KeyValueField keyName="phylum" value={animal.phylum} />
                         <KeyValueField keyName="subphylum" value={animal.subPhylum} />

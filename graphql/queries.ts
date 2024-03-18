@@ -9,7 +9,7 @@ export const GET_ANIMAL = gql`
             family
             thumbnail
             bio
-            class
+            classification
             order
             phylum
             subPhylum
@@ -57,7 +57,7 @@ export type AnimalData = {
         bio: string;
         phylum: string;
         subPhylum: string;
-        class: string;
+        classification: string;
         order: string;
         family: string;
         createdAt: string;
