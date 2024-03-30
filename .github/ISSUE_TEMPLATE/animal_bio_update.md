@@ -1,7 +1,7 @@
 ---
-name: Animal
-about: Give suggestions on animals to add to the database
-title: '🐾 [ANIMAL] Write a suitable title'
+name: Animal Bio
+about: Adds or updates the bio of an animal
+title: '🐾 [ANIMAL BIO] Needed for <add name of animal>'
 labels: 'animal-bio'
 assignees: ''
 ---
@@ -11,9 +11,7 @@ assignees: ''
 Using ChatGPT: Feel free to use it but please double check the text that ChatGPT provides to you.
 -->
 
-```plaintext
-
-## Structure
+<!--start here -->
 
 ## Intro
 
@@ -27,20 +25,14 @@ Using ChatGPT: Feel free to use it but please double check the text that ChatGPT
 
 ## Reproduction
 
-## Pop culture and references(optional)
+<!-- (optional) -->
+## Pop culture and references
 
-## Conservation Status(optional and if applicable)
+<!-- (optional to explain the conversation status of animal if applicable) -->
+## Conservation Status
+
+<!-- Other body paragraphs can be added.  -->
 
 ## Conclusion
 
-```
-
-<!-- Other body paragraphs can be added but this is the ideal structure -->
-
-## How to Format
-Use the Dillinger markdown editor and once you format the article in markdown, copy the html for it and copy and
-paste into graphql explorer or prisma studio.
-
-## Adding thumbnails
-You can either copy and paste the image address from websites like unsplash and pexels or you can
-upload it locally while adding or updating an animal via graphql explorer
+<!-- end of bio -->
