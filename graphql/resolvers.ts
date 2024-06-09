@@ -1,4 +1,5 @@
 import {Context} from '@/app/api/graphql/route';
+import { put } from "@vercel/blob";
 
 export const resolvers = {
     Query: {
@@ -21,7 +22,7 @@ export const resolvers = {
                     }
                 }
             })
-        },animalCategories: async (_parent: any, args: any, context: Context) => {
+        }, animalCategories: async (_parent: any, args: any, context: Context) => {
             const { category } = args;
             let fieldName : any;
             switch (category) {
@@ -42,35 +43,20 @@ export const resolvers = {
     },
     Mutation: {
         addAnimal: async (_parent: any, args: any, context: Context) => {
-            const { name, description, thumbnail, phylum, subPhylum, order, family } = args.input;
+            const { name, description,  phylum, subPhylum, order, family } = args.input;
+            
+            const thumbnail = args.input.thumbnail;
+
+            const blob = await put(thumbnail, thumbnail, {
+                access: 'public',
+            });
 
             return await context.prisma.animal.create({
                 data: {
                     ...args.input,
-                    // thumbnail: pathToUploadedThumbnail, // Replace with the actual path
+                    thumbnail: blob.url, // Replace with the actual path
                 },
             });
-            // const formData = new FormData();
-            // formData.append('thumbnail', thumbnail)
-            //
-            // console.log({ "args.input": args.input })
-            //
-            // // Handle the file upload (e.g., using the 'multer' package) and store the file
-            // const uploadResponse = await fetch("/api/upload", {
-            //     method: 'POST',
-            //     headers: {
-            //         "Content-Type": "application/json"
-            //     },
-            //     body: formData,
-            // });
-            //
-            // if(uploadResponse.status  === 200) {
-            //     const pathToUploadedThumbnail = await uploadResponse.text();
-            //
-            //
-            // } else {
-            //     throw new Error('File upload failed');
-            // }
         },
         updateAnimal: async (_parent: any, args: any, context: Context) => {
             // Use your data source (e.g., Prisma) to update the animal
@@ -78,7 +64,6 @@ export const resolvers = {
                 where: { id: args.id },
                 data: args.input
             })
-
         },
         deleteAnimal: async (parent: any, args: any, context: Context) => {
             // Use your data source (e.g., Prisma) to delete the animal
