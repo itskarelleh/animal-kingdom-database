@@ -1,7 +1,7 @@
 import { gql } from "graphql-tag";
 
 export const ADD_ANIMAL = gql`
-mutation ADDAnimal($input: AnimalInput!) {
+mutation AddAnimal($input: AnimalInput!) {
   addAnimal(input: $input) {
     name
     description
