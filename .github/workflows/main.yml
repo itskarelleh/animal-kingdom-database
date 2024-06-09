@@ -1,4 +1,4 @@
-name: Send Data to Budibase
+name: Post animal data to DB
 
 on:
   issues:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   add_animal:
-    if: github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'to be added')
+    if: github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'send-data-to-db')
 
     runs-on: ubuntu-latest
 
@@ -27,17 +27,17 @@ jobs:
             console.log(animalData);
             return { animalData: animalData };
 
-      - name: Send data to Budibase
-        id: send_to_budibase
+      - name: Send Data to API
+        id: send_to_api
+        if: steps.extract_info.outputs.animalData != null
         run: |
-          # Your code to send data to Budibase using extracted animalData
-
-      - name: Update PostgreSQL database
-        id: update_database
-        run: |
-          # Your code to update PostgreSQL database
+          curl --request POST \
+            --header 'content-type: application/json' \
+            --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            --url 'https://animal-kingdom-psi.vercel.app/api/graphql' \
+            --data '{"query":"mutation { addAnimal(input: { data: { animalData: \"${{ steps.extract_info.outputs.animalData }}\" } }) { animal { id } }"}'
 
       - name: Comment on issue
-        if: steps.send_to_budibase.outcome == 'success' && steps.update_database.outcome == 'success'
+        if: steps.send_to_api.success
         run: |
-          echo 'Animal has been successfully added to Budibase and PostgreSQL database.'
+          echo 'Animal data has been successfully sent!'
