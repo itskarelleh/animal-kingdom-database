@@ -1,7 +1,7 @@
 ---
 name: New Animal
 about: Give taxonomic details for an animal that should be added to the database
-title: '🐾 [NEW ANIMAL] Write a suitable title'
+title: '🐾 [NEW ANIMAL] <animal's common name>'
 labels: 'new-animal'
 assignees: ''
 
