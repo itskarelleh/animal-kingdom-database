@@ -54,7 +54,7 @@ export default function SearchInput({ isDialogClose } : { isDialogClose?: boolea
     }, [data]);
 
     return (
-        <div className="w-full border-b border-b-slate-400 flex flex-row items-center">
+        <div className="w-full border-b border-b-zinc-400 flex flex-row items-center">
             <Search />
             <div className="flex flex-col w-full h-full relative">
                 <Input
@@ -66,19 +66,19 @@ export default function SearchInput({ isDialogClose } : { isDialogClose?: boolea
                 />
                 {/* Display search results */}
                 {searchResults.length > 0 && (
-                    <ul className="absolute z-10 top-full w-full mt-1 bg-white dark:bg-slate-800 shadow-md">
+                    <ul className="absolute z-10 top-full w-full mt-1 bg-white dark:bg-zinc-800 shadow-md">
                         {searchResults.map((animal : AnimalSearchResult) => (
                             isDialogClose ? (
                                 <DialogClose asChild key={animal.id}>
                                     <Link className="w-full" href={`/animal/${animal.name}`}>
-                                        <li className="capitalize p-2 bg-white hover:slate-200 dark:bg-slate-800 dark:hover:bg-slate-900/50 w-full transition-all ease-linear">
+                                        <li className="capitalize p-2 bg-white hover:zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-900/50 w-full transition-all ease-linear">
                                             {animal.name}
                                         </li>
                                     </Link>
                                 </DialogClose>
                             ) : (
                                 <Link className="w-full" key={animal.id} href={`/animal/${animal.name}`}>
-                                    <li className="capitalize p-2 bg-white hover:slate-200 dark:bg-slate-800 dark:hover:bg-slate-900/50 w-full transition-all ease-linear">
+                                    <li className="capitalize p-2 bg-white hover:zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-900/50 w-full transition-all ease-linear">
                                         {animal.name}
                                     </li>
                                 </Link>
