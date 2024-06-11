@@ -20,14 +20,14 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={inter.className + "text-slate-900 dark:bg-slate-900 min-h-screen"}>
+            <body className={inter.className + "text-zinc-900 dark:bg-zinc-900 min-h-screen"}>
             <ThemeProvider attribute="class" defaultTheme="system">
                 <Providers>
                     <Nav/>
                     <main className="min-h-screen">
                         {children}
                     </main>
-                    <footer className="h-16 w-full bg-slate-800 dark:bg-slate-950 text-white py-8">
+                    <footer className="h-16 w-full bg-zinc-800 dark:bg-zinc-950 text-white py-8">
                         <div className="container mx-auto px-4">
                             <div className="flex justify-between items-center">
                                 <p className="text-sm">© 2023 Animal Database. All rights reserved.</p>
