@@ -19,10 +19,10 @@ function Nav() {
                     </Link>
                 <div id="menu-right" className="w-full relative flex flex-row justify-end items-center">
                     <Dialog>
-                        <Button variant="ghost" size="icon">
+                        <Button className='dark:hover:bg-zinc-900/50' variant="ghost" size="icon">
                             <DialogTrigger><Search /><span className="sr-only">search</span></DialogTrigger>
                         </Button>
-                        <DialogContent className="dark:bg-zinc-800">
+                        <DialogContent className=" dark:bg-zinc-800">
                             <DialogHeader>
                                 <DialogTitle>Search</DialogTitle>
                             </DialogHeader>
