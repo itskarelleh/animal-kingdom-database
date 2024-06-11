@@ -184,4 +184,15 @@ export const animals : any = [
         family: 'Salamandridae',
         conservationStatus: 'LC',
     },
+    {
+        name: 'cougar',
+        description: 'a large cat native to the Americas',
+        thumbnail: 'https://github.com/itskarelleh/animal-kingdom-database/assets/23417952/a113bcbe-eb60-41b2-9d88-f858e3438a5b',
+        phylum: 'chordata',
+        subPhylum: 'vertebrata',
+        classification: 'mammalia',
+        animalOrder: 'carnivora',
+        family: 'felidae',
+        conservationStatus: 'LC',
+    },
 ];
