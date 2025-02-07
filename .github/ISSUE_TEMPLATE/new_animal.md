@@ -8,12 +8,11 @@ assignees: ''
 ---
 <!-- ! Please do a search before opening an issue for a new animal to ensure that it does not already exist. 
 
-When adding an animal, please refer to the common name. For domesticated animals, do not refer to breeds. At this time, we are not taking into consideration the breeds of animals at this time.
+When adding an animal, please refer to the common name, not breeds. At this time, we are not taking into consideration the breeds of animals.
 
-❌ Don't do this: name: 'shiba inu'
-✅ Do this: name: 'dog'
-
-You will also need to include an image of the animal. Please add image for the animal in the `./media` directory and update the `thumbnail` field accordingly in JPG or PNG format.
+You will also need to include an image of the animal. To do this, use the following steps:
+- Click the "Paste, drop or click to add files" button in the bottom right of the description box
+- copy and paste the url for the image into the thumbnail field
 
 Conversation Status - When adding the conversation status of the animal, use acronym:
 
@@ -31,12 +30,11 @@ List of the Conversation Statuses:
 | NE     | Not Evaluated          |
 | NA     | Not Applicable         |
 
-
 example:
 {
     name: 'dog'
     description: 'a domesticated canine'
-    thumbnail: './media/image_of_dog.jpg'
+    thumbnail: 'https://github.com/itskarelleh/animal-kingdom-database/assets/asset_id'
     conservationStatus: 'NA'
     phylum: 'chordata'
     subPhylum: 'vertebrata'

@@ -95,7 +95,7 @@ export default function Page({ params: { name } } : Props) {
 // the key from the database
 const KeyValueField = ({ keyName, value } : { keyName: any, value: any }) => (
     <div className="grid grid-cols-12 w-full">
-        <span className="text-sm col-span-6 text-slate-500">{keyName}</span>
+        <span className="text-sm col-span-6 text-zinc-500">{keyName}</span>
         <span className="text-sm col-span-6">{value}</span>
         <span className="text-sm sr-only">{keyName} : {value}</span>
     </div>

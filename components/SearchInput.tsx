@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useLazyQuery } from '@apollo/client';
 import { gql } from 'graphql-tag';
-import {Input} from "@/components/ui/input";
+import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
-import {AnimalData} from "@/graphql/queries";
 import Link from "next/link";
-import {DialogClose} from "@/components/ui/dialog";
+import { DialogClose } from "@/components/ui/dialog";
 
 const SEARCH_ANIMALS_QUERY = gql`
     query SearchAnimals($term: String!) {
@@ -15,6 +14,11 @@ const SEARCH_ANIMALS_QUERY = gql`
         }
     }
 `;
+
+type AnimalSearchResult = {
+    id: string;
+    name: string;
+};
 
 export default function SearchInput({ isDialogClose } : { isDialogClose?: boolean}) {
     const [searchTerm, setSearchTerm] = useState('');
@@ -36,6 +40,7 @@ export default function SearchInput({ isDialogClose } : { isDialogClose?: boolea
     // Fetch data when debounced term changes
     useEffect(() => {
         if (debouncedTerm) {
+            console.log('Fetching data for:', debouncedTerm); // Debug log
             searchAnimals({ variables: { term: debouncedTerm } });
         }
     }, [debouncedTerm, searchAnimals]);
@@ -43,12 +48,13 @@ export default function SearchInput({ isDialogClose } : { isDialogClose?: boolea
     // Update search results
     useEffect(() => {
         if (data) {
+            console.log('Received data:', data); // Debug log
             setSearchResults(data.animalsByNames);
         }
     }, [data]);
 
     return (
-        <div className="w-full border-b border-b-slate-400 flex flex-row items-center">
+        <div className="w-full border-b border-b-zinc-400 flex flex-row items-center">
             <Search />
             <div className="flex flex-col w-full h-full relative">
                 <Input
@@ -60,22 +66,24 @@ export default function SearchInput({ isDialogClose } : { isDialogClose?: boolea
                 />
                 {/* Display search results */}
                 {searchResults.length > 0 && (
-                    <ul className="absolute z-10 top-full w-full mt-1 bg-white dark:bg-slate-800 shadow-md">
-                        {searchResults.map((animal : AnimalData) => {
-                            return (
-                                <>
-                                    {isDialogClose ? (<DialogClose asChild>
-                                            <Link className="w-full" key={animal.id} href={`/animal/${animal.name}`}>
-                                                <li className="capitalize p-2 bg-white hover:slate-200 dark:bg-slate-800 dark:hover:bg-slate-900/50 w-full transition-all ease-linear">{animal.name}</li>
-                                            </Link>
-                                        </DialogClose>) :
-                                        <Link className="w-full" key={animal.id} href={`/animal/${animal.name}`}>
-                                            <li className="capitalize p-2 bg-white hover:slate-200 dark:bg-slate-800 dark:hover:bg-slate-900/50 w-full transition-all ease-linear">{animal.name}</li>
-                                        </Link>
-                                    }
-                                </>
+                    <ul className="absolute z-10 top-full w-full mt-1 bg-white dark:bg-zinc-800 shadow-md">
+                        {searchResults.map((animal : AnimalSearchResult) => (
+                            isDialogClose ? (
+                                <DialogClose asChild key={animal.id}>
+                                    <Link className="w-full" href={`/animal/${animal.name}`}>
+                                        <li className="capitalize p-2 bg-white hover:zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-900/50 w-full transition-all ease-linear">
+                                            {animal.name}
+                                        </li>
+                                    </Link>
+                                </DialogClose>
+                            ) : (
+                                <Link className="w-full" key={animal.id} href={`/animal/${animal.name}`}>
+                                    <li className="capitalize p-2 bg-white hover:zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-900/50 w-full transition-all ease-linear">
+                                        {animal.name}
+                                    </li>
+                                </Link>
                             )
-                        })}
+                        ))}
                     </ul>
                 )}
             </div>

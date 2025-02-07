@@ -10,7 +10,7 @@ import {Button} from '@/components/ui/button';
 function Nav() {
 
     return (
-        <nav className="h-16 bg-white w-full dark:bg-slate-800 sticky top-0 z-[998] shadow-xl">
+        <nav className="h-16 bg-white w-full dark:bg-zinc-800 sticky top-0 z-[998] shadow-xl">
             <div className="h-full w-full px-12 flex flex-row justify-between">
                     <Link href="/" className="w-2/5 font-bold h-full justify-center flex flex-col">
                         <span>
@@ -22,7 +22,7 @@ function Nav() {
                         <Button variant="ghost" size="icon">
                             <DialogTrigger><Search /><span className="sr-only">search</span></DialogTrigger>
                         </Button>
-                        <DialogContent className="dark:bg-slate-800">
+                        <DialogContent className="dark:bg-zinc-800">
                             <DialogHeader>
                                 <DialogTitle>Search</DialogTitle>
                             </DialogHeader>
